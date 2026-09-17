@@ -3,12 +3,10 @@ package org.firstinspires.ftc.teamcode;
 // These are the "Main" imports. There will be more in the future
 import com.qualcomm.robotcore.eventloop.opmode.OpMode; // this is the type of operation
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp; // this is the telop operation
-import com.qualcomm.robotcore.hardware.DcMotor; // motor
-import com.qualcomm.robotcore.hardware.DcMotorEx; // more motor
-import com.qualcomm.robotcore.hardware.DcMotorSimple; // even more motor
-import com.qualcomm.robotcore.hardware.Servo; // a servo
+
+
 @TeleOp (name = "Motor Practice")  // this is the name foud in the driver station
-public class motorPractice extends OpMode {
+public class motorPractice1 extends OpMode {
     // we put all motor declerations in here:
     // private or public DcMotor motorName = null; (yes it has to be null)  try to have the name to be actually useful and not jeff or steve
     // TODO: create a motor and name it

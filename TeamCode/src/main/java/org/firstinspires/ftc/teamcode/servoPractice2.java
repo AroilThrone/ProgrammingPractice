@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-public class servoPractice extends OpMode {
+public class servoPractice2 extends OpMode {
     /*
     Types of Servos:
         Continuous:
