@@ -33,7 +33,7 @@ public class buttonLogic extends OpMode {
         {
             pressingDpadUp = false;
         }
-        //if the button is read as currently being pressed, and was not already being pressed, pressing DpadUp is true
+        //if the button is read as currently being pressed, and was not already being pressed (basically not being held), pressing DpadUp is true
         //Then the previous if statement reverts pressingDpadUp back to false once the button is released
         if (gamepad1.dpad_up && !pressingDpadUp)
         {

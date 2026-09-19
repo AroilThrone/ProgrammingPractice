@@ -18,7 +18,7 @@ public class servoPractice2 extends OpMode {
      */
 
     //Create and Initialize Servos the same as motors, just replace each instance of the DcMotorEx with Servo
-    //TO-DO:Create a servo and continuous servo
+    //TO-DO:Create a servo and continuous servo variable like you would a motor (in essence set to null)
 
 
     @Override
