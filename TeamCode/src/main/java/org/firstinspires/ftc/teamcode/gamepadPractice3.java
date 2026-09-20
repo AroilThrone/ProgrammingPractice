@@ -4,11 +4,12 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 public class gamepadPractice3 extends OpMode {
     //to get the inputs from the controller, use gamepad1.
-    //and then select the method depending on what you want to detect is pressed
-    //Some of them like the triggers return a number so you have to check if its greater than
+    //then, select the method depending on what you want to detect is pressed
+    //Some of them (like the triggers) return a number so you have to check if it's greater than
     //a double between 0 and 1
+
     //Note: Don't use the joysticks since they are used for drive
-    //Ex: gamepad1.dpadUpWasPressed() which returns a boolean of if dpadup is currently pressed
+    //Ex: gamepad1.dpadUpWasPressed() returns a boolean of whether dpadup is currently pressed
     //Ex:
 //        if (gamepad1.dpadDownWasPressed())
 //        {
@@ -27,15 +28,17 @@ public class gamepadPractice3 extends OpMode {
 //        {
 //            moto2.setPower(0);
 //        }
-    //TO-DO: create a continuous servo and initialize it to check if a is pressed every loop
-    //      and spin clockwise while a is being pressed. Note that you cannot use while loops in loop() method
-    //Note: the method only returns if it is pressed, so you have to make booleans and a way to
-    //      see if its being held, as the computer runs so fast dpadUpWasPressed returns true several time
-    //      in the span you press the button, check buttonLogic for help with this
 
+    //TO-DO: Create & initialize a continuous servo. Then, in the loop method, check if a is being pressed.
+    // When a is pressed, the servo should spin clockwise.
+    //Note #1: you cannot use while loops in the loop() method.
+    //Note #2: the method only returns something if a is pressed. So, you must create booleans to see if it's being held down.
+    // This is because the computer runs so fast that dpadUpWasPressed returns true several times (check buttonLogic more details on this)
+    private CRServo continuousServo = null;
+    private boolean aWasPressed = false;
     @Override
     public void init() {
-
+        continuousServo = hardwareMap.get(CRServo.class, "cr_servo");
     }
 
     @Override
@@ -50,6 +53,14 @@ public class gamepadPractice3 extends OpMode {
 
     @Override
     public void loop() {
+        boolean aIsPressed = gamepad1.a;
+        if(aIsPressed && !aWasPressed){
+            intakeServo.setPower(1.0);
+        }
+        else if(!aIsPressed && aWasPressed){
+            intakeServo.setPower(0.0);
+        }
+        aWasPressed = aIsPressed;
     }
 
     @Override

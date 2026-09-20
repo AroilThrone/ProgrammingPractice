@@ -18,8 +18,9 @@ public class servoPractice2 extends OpMode {
      */
 
     //Create and Initialize Servos the same as motors, just replace each instance of the DcMotorEx with Servo
-    //TO-DO:Create a servo and continuous servo variable like you would a motor (in essence set to null)
-
+    //TO-DO:Create a servo and continuous servo
+    private Servo standardServo = null;
+    private CRServo continuousServo = null;
 
     @Override
     public void init() {
@@ -39,6 +40,8 @@ public class servoPractice2 extends OpMode {
 
         //You can also set negative position or power just like you can for motors
         //TO-DO: init the servos you made
+        standardServo = hardwareMap.get(Servo.class, "standard_servo");
+        continuousServo = hardwareMap.get(CRServo.class, "cr_servo");
     }
 
     @Override
@@ -49,6 +52,8 @@ public class servoPractice2 extends OpMode {
     @Override
     public void start() {
         //TO-DO: set the position to 0.8 and power to 1 for the respective servos
+        standardServo.setPosition(0.8);
+        continuousServo.setPower(1.0);
     }
 
     @Override
@@ -59,5 +64,8 @@ public class servoPractice2 extends OpMode {
     @Override
     public void stop() {
         //TO-DO: set position to 0 and power to 0 for respective servos
+        standardServo.setPostion(0.0);
+        continuousServo.setPower(0.0);
+
     }
 }
